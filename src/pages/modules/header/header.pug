@@ -1,0 +1,20 @@
+header.b-header
+    .b-header__container.b-container
+        .b-header__inner
+            a(href="index.html" rel="js-mobile-logo").b-header__logo.b-logo
+                .b-logo__company <span>M</span><span>N</span><span>T</span><span>N</span>
+            nav.b-header__nav.b-nav(data-da=".b-header__menu,767.9,0")
+                ul.b-nav__list
+                    li.b-nav__item
+                        a(href="#").b-nav__link Equipment
+                    li.b-nav__item
+                        a(href="#").b-nav__link About us
+                    li.b-nav__item
+                        a(href="#").b-nav__link Blog
+            .b-header__account.b-account(data-da=".b-header__menu,767.9,1")
+                a(href="#").b-account__link
+                    +svg('b-account__icon', 'account')
+                    span.b-account__text Account
+            .b-header__mobile-toggle.b-mobile-toggle(rel="js-mobile-toggle")
+                .b-mobile-toggle__item: span
+    .b-header__menu(rel="js-mobile-menu")

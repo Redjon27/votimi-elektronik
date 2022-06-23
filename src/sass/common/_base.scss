@@ -1,0 +1,231 @@
+// ------------ VARIABLES --------------- //
+$main-font: 'Gilroy';
+$cd-font: 'Chronicle-Display';
+
+$main-color: #0b1d26;
+$accent-color: #fbd784;
+
+$trs: .2s;
+
+// ----------------
+
+html {
+  scroll-behavior: smooth;
+  height: 100%;
+  font-size: 11px;
+  @include breakpoint(xxxl) {
+    font-size: 10px;
+  }
+  @include breakpoint(xxl) {
+    font-size: 8px;
+  }
+  @include breakpoint(xl) {
+    font-size: 7.5px;
+  }
+  @include breakpoint(xlg) {
+    font-size: 6.6px;
+  }
+  @include breakpoint(lg) {
+    font-size: 6.08px;
+  }
+}
+body {
+  background-color: $main-color;
+  font-family: $main-font, Arial, Helvetica, sans-serif;
+  font-weight: 400;
+  font-size: 1.6rem;
+  line-height: 1.5;
+  color: #000;
+  height: 100%;
+  position: relative;
+  text-rendering: optimizeSpeed;
+  &.locked {
+    overflow: hidden;
+    &::before {
+      opacity: 1;
+    }
+  }
+}
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  outline: none;
+}
+
+ul, ol {
+  padding: 0;
+  margin: 0;
+  list-style: none;
+}
+a {
+  text-decoration: none;
+}
+
+// =============== GENERAL =============== //
+*::selection {
+  background-color: #dbbc738e;
+  color: #fff;
+}
+.b-wrapper {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
+.b-content {
+  flex: 1 0 auto;
+}
+.b-container {
+  max-width: 176rem;
+  margin: 0px auto;
+  padding: 0 7rem;
+  &--secondary {
+    max-width: 146rem;
+  }
+  @include breakpoint(xs) {
+    padding: 0 4rem;
+  }
+}
+
+
+// =============== COMPONENTS =============== //
+
+.b-media {
+  &__inner {
+    display: flex;
+    flex-direction: column;
+  }
+  &__text {
+    margin-bottom: 3rem;
+    font-size: 1.6rem;
+    font-weight: 700;
+    color: #fff;
+    writing-mode: vertical-lr;
+    text-orientation: mixed;
+  }
+  &__list {
+    &--horizontal {
+      display: flex;
+      .b-media {
+        &__item {
+          &:not(:last-of-type) {
+            margin-bottom: 0;
+            margin-right: 2rem;
+          }
+        }
+      }
+    }
+  }
+  &__item {
+    &:not(:last-of-type) {
+      margin-bottom: 2rem;
+    }
+  }
+  &__link {
+    &:hover {
+      .b-media__icon {
+        fill: $accent-color;
+      }
+    }
+  }
+  &__icon {
+    width: 2.4rem;
+    height: 2.4rem;
+    fill: #fff;
+    transition: $trs;
+  }
+}
+.b-tagline {
+  position: relative;
+  padding-left: 12rem;
+  font-weight: 800;
+  font-size: 1.6rem;
+  line-height: 2.2rem;
+  letter-spacing: 6px;
+  text-transform: uppercase;
+  color: $accent-color;
+  &::before {
+      content: '';
+      position: absolute;
+      top: 50%;
+      left: 0;
+      transform: translateY(-50%);
+      width: 9rem;
+      height: 0.2rem;
+      background-color: $accent-color;
+  }
+  @include breakpoint(xs) {
+    padding-left: 7rem;
+    font-size: 1.2rem;
+    &::before {
+      width: 4rem;
+    }
+  }
+}
+.b-title {
+  font-family: $cd-font;
+  font-weight: 600;
+  font-size: 8rem;
+  line-height: 9rem;
+  text-transform: capitalize;
+  color: #fff;
+  &--small {
+    font-size: 6rem;
+    line-height: 7rem;
+  }
+  @include breakpoint(sm) {
+    font-size: 7rem;
+    &--small {
+      font-size: 6rem;
+    }
+  }
+  @include breakpoint(xs) {
+    font-size: 5rem;
+    line-height: 6rem;
+    &--small {
+      font-size: 4rem;
+      line-height: 5rem;
+    }
+  }
+}
+.b-logo {
+  &__company {
+    font-family: $cd-font;
+    font-size: 3rem;
+    font-weight: 700;
+    color: #fff;
+    span {
+      &:first-child {
+        transition: .1s;
+        transition-delay: 0s;
+      }
+      &:nth-child(2) {
+        transition: .1s;
+        transition-delay: .1s;
+      }
+      &:nth-child(3) {
+        transition: .1s;
+        transition-delay: .2s;
+      }
+      &:last-child {
+        transition: .1s;
+        transition-delay: .3s;
+      }
+    }
+    &:hover {
+      span {
+        color: $accent-color;
+      }
+    }
+    @include breakpoint(sm) {
+      font-size: 5rem;
+    }
+  }
+  &.active {
+    .b-logo__company {
+      span {
+        color: $main-color;
+      }
+    }
+  }
+}

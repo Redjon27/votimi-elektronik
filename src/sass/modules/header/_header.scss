@@ -1,0 +1,197 @@
+.b-header {
+    position: absolute;
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 20;
+    width: 100%;
+    &__inner {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding: 5rem 0;
+    }
+    &__menu {
+        @include breakpoint(sm) {
+            position: fixed;
+            top: 0;
+            left: 0;
+            transform: translateY(-200%);
+            z-index: 5;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+            width: 100%;
+            height: 100vh;
+            padding-top: 22rem;
+            padding-bottom: 4rem;
+            background-color: #fff;
+            overflow: auto;
+            opacity: 0;
+            visibility: hidden;
+            transition: .6s;
+            .b-header {
+                &__nav {
+                    margin-bottom: 4rem;
+                }
+            }
+            .b-nav {
+                &__list {
+                    flex-direction: column;
+                }
+                &__item {
+                    &:not(:last-of-type) {
+                        margin-right: 0;
+                        margin-bottom: 3rem;
+                    }
+                }
+                &__link {
+                    font-size: 3.5rem;
+                    color: $main-color;
+                    &:hover {
+                        transform: translateY(0);
+                        color: $main-color;
+                    }
+                }
+            }
+            .b-account {
+                &__icon {
+                    fill: $main-color;
+                }
+                &__text {
+                    font-size: 3.5rem;
+                    color: $main-color;
+                }
+                &:hover {
+                    .b-account {
+                        &__icon {
+                            fill: $main-color;
+                        }
+                        &__text {
+                            color: $main-color;
+                        }
+                    }
+                }
+            }
+            &.active {
+                transform: translate(0);
+                opacity: 1;
+                visibility: visible;
+            }
+        }
+    }
+    &__logo {
+        @include breakpoint(sm) {
+            position: relative;
+            z-index: 6;
+        }
+    }
+}
+.b-nav {
+    &__list {
+        display: flex;
+    }
+    &__item {
+        &:not(:last-of-type) {
+            margin-right: 4rem;
+        }
+    }
+    &__link {
+        display: inline-block;
+        padding: 2rem 1rem;
+        font-size: 2rem;
+        font-weight: 700;
+        transition: $trs;
+        color: #fff;
+        &:hover {
+            transform: translateY(-2px);
+            color: $accent-color;
+        }
+    }
+}
+.b-account {
+    &__link {
+        display: flex;
+        align-items: center;
+        padding: 1rem;
+    }
+    &__icon {
+        width: 2rem;
+        height: 2rem;
+        margin-right: 1rem;
+        fill: #fff;
+        transition: $trs;
+    }
+    &__text {
+        font-size: 2rem;
+        font-weight: 700;
+        color: #fff;
+        transition: $trs;
+    }
+    &:hover {
+        .b-account {
+            &__icon {
+                fill: $accent-color;
+            }
+            &__text {
+                color: $accent-color;
+            }
+        }
+    }
+}
+.b-mobile-toggle {
+    $par: &;
+    position: relative;
+    z-index: 6;
+    display: none;
+    width: 28px;
+    height: 28px;
+    &__item {
+        span {
+            $width: 2px;
+            position: relative;
+            display: block;
+            width: 100%;
+            height: $width;
+            border-radius: 2px;
+            backface-visibility: hidden;
+            background-color: #fff;
+            transition: all 0.3s;
+            &::after,
+            &::before {
+                content: "";
+                position: absolute;
+                left: 0;
+                top: 9px;
+                width: 100%;
+                height: $width;
+                border-radius: 2px;
+                backface-visibility: hidden;
+                background-color: #fff;
+                transition: all 0.3s;
+            }
+            &::after {
+                top: 18.5px;
+            }
+        }
+    }
+    &.active {
+        #{$par}__item {
+            span {
+                background-color: transparent;
+                &::before {
+                    transform: rotate(45deg) translate(-1px, 0px);
+                    background-color: $main-color;
+                }
+                &::after {
+                    transform: rotate(-45deg) translate(6px,-7.5px);
+                    background-color: $main-color;
+                }
+            }
+        }
+    }
+    @include breakpoint(sm) {
+        display: block;
+    }
+}

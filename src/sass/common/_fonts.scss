@@ -1,0 +1,38 @@
+
+// ------------ Gilroy --------------- //
+
+@font-face {
+    font-family: Gilroy;
+    src:
+        url('../fonts/Gilroy/Gilroy-Bold.woff2') format('woff2'),
+        url('../fonts/Gilroy/Gilroy-Bold.woff') format('woff');
+    font-weight: 700;
+    font-style: normal;
+}
+@font-face {
+    font-family: Gilroy;
+    src:
+        url('../fonts/Gilroy/Gilroy-ExtraBold.woff2') format('woff2'),
+        url('../fonts/Gilroy/Gilroy-ExtraBold.woff') format('woff');
+    font-weight: 800;
+    font-style: normal;
+}
+@font-face {
+    font-family: Gilroy;
+    src:
+        url('../fonts/Gilroy/Gilroy-Regular.woff2') format('woff2'),
+        url('../fonts/Gilroy/Gilroy-Regular.woff') format('woff');
+    font-weight: 500;
+    font-style: normal;
+}
+
+// ------------ Chronicle Display --------------- //
+
+@font-face {
+    font-family: Chronicle-Display;
+    src:
+        url('../fonts/Chronicle-Display/Chronicle-Display-Semibold.woff2') format('woff2'),
+        url('../fonts/Chronicle-Display/Chronicle-Display-Semibold.woff') format('woff');
+    font-weight: 600;
+    font-style: normal;
+}
